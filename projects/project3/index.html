@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <script src="./index.js" type="module"></script>
+    <div>
+      <p>it will show you food name</p>
+      <button class="list1">list 1</button>
+    </div>
+    <div>
+      <p>food calorie than 100</p>
+      <button class="list2">list 2</button>
+    </div>
+    <div>
+      <p>food calorie less than 100</p>
+      <button class="list3">list 3</button>
+    </div>
+    <div>
+      <p>it will sort the food based on data you want to like protein or cab</p>
+      <p>please select which you want to sort</p>
+      <button class="list4">list 4</button>
+      <label for="cab">Cab
+      <input type="radio" name="sort" id="cab" value="cab">
+    </label>
+      <label for="protein">Protein
+      <input type="radio" name="sort" id="protein" value="protiens">
+    </label>
+    </div>
+
+    <div>
+      <p>
+        shows category of food based on which you like
+        Fruit,Vegetable,Protein,Nuts,Grain,Dairy
+      </p>
+      <p>which category food you want</p>
+      <button class="list5">list 5</button><br>
+      <label for="Vegetable">Vegetable</label>
+      <input
+        type="radio"
+        name="category"
+        id="Vegetable"
+        value="Vegetable"
+      /><br />
+      <label for="Protein">Protein</label>
+      <input type="radio" name="category" id="Protein" value="Protein" /><br />
+      <label for="Fruit">Fruit</label>
+      <input type="radio" name="category" id="Fruit" value="Fruit" /><br />
+      <label for="Nuts">Nuts</label>
+      <input type="radio" name="category" id="Nuts" value="Nuts" /> <br />
+      <label for="Grain">Grain</label>
+      <input type="radio" name="category" id="Grain" value="Grain" /> <br />
+      <label for="Dairy">Dairy</label  >
+      <input type="radio" name="category" id="Dairy" value="Dairy" /> <br />
+    </div>
+  
+    <div class="list"></div>
+
+    <script>
+      // let buttonn = document.querySelector('button');
+      // let list = document.querySelector('.list');
+      // console.log(buttonn);
+      // console.log(list);
+      // buttonn.addEventListener('click', function() { console.log(list);
+      // list.textContent="chanfge"});
+      // list.innerHTML='<div class="fsd">fadf</div>'
+    </script>
+  </body>
+</html>
