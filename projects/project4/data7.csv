@@ -1,0 +1,12 @@
+Item Name,Description,Quantity,Cost (per unit),Selling Price (per unit)
+Electric Fan,Main unit for air circulation,1,$20,$40
+Fan Blades,Rotating blades for air movement,3,$5,$10
+Motor,Drives the fan blades for rotation,1,$10,$20
+Fan Housing,Encloses and protects the fan components,1,$8,$15
+Switch,Controls the fan's on/off and speed settings,1,$3,$6
+Power Cord,Provides electrical connection to the fan,1,$2,$4
+Base or Mounting Bracket,Supports and stabilizes the fan,1,$5,$10
+Grille or Cover,Protective cover for the fan blades,1,$4,$8
+Oscillation Mechanism (Optional),Allows the fan to rotate horizontally,1,$6,$12
+Remote Control (Optional),Wireless device for controlling the fan,1,$7,$15
+Timer Function (Optional),Allows the fan to be set for a specific duration,1,$4,$8
