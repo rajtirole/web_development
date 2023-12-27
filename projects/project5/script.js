@@ -17,7 +17,7 @@ let box41_1 = document.querySelector(".box41-1");
 let box4_1 = document.querySelector(".box4-1");
 let box4_2 = document.querySelector(".box4-2");
 let box4_3 = document.querySelector(".box4-3");
-let box6_2 = document.querySelector(".box6-4");
+let box5_2 = document.querySelector(".box5-9");
 
 let score1 = document.querySelector(".score12");
 let score2 = document.querySelector(".score21");
@@ -147,7 +147,7 @@ function rr(a) {
     } else if (a == "s" || a == "p") {
       box43_1.classList.add("box41_1_shadow");
     }
-    box6_2.classList.remove("box8");
+    box5_2.classList.remove("box8");
 
     // if(a=='s'){
 
@@ -192,7 +192,7 @@ function playagainn1() {
     console.log(box5);
     box5.classList.add('box5-5');
     box.classList.add('box8')
-    box6_2.classList.add('box8')
+    box5_2.classList.add('box8')
     box5.classList.remove('box5');
 
 
