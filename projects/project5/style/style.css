@@ -194,9 +194,16 @@ body {
   border: 2px solid #ffff;
   border-radius:10px ;
   padding: 10px 20px;
+  /* position: absolute; */
+  
+}
+.box6-1{
   position: absolute;
+  display: flex;
+  gap: 20px;
   bottom: 2%;
   right: 5%;
+
 
 }
 .box4{
@@ -205,6 +212,7 @@ body {
   align-items: center;
   width: 60vw;
   height: 50vh;
+
   
 
 }
@@ -366,15 +374,18 @@ align-items: center;
 .shadow1{
 }
 .box5{
+  
+  display: none;
+  /* position: absolute; */
+
+}
+.box5-5{
   display: flex;
   height: 100vh;
   flex-direction: column;
   gap: 4vh;
   justify-content: center;
   align-items: center;
-  display: none;
-  /* position: absolute; */
-
 }
 .box5-1{
   /* position: absolute; */

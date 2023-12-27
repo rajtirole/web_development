@@ -17,23 +17,24 @@ let box41_1 = document.querySelector(".box41-1");
 let box4_1 = document.querySelector(".box4-1");
 let box4_2 = document.querySelector(".box4-2");
 let box4_3 = document.querySelector(".box4-3");
+let box6_2 = document.querySelector(".box6-4");
 
 let score1 = document.querySelector(".score12");
 let score2 = document.querySelector(".score21");
 
 let page = document.querySelector("body");
+let box=document.querySelector('.box')
 
-
-
-function playagainn(){
-  console.log('play');
-  localStorage.setItem("score2_1",0);
-  localStorage.setItem("score1_1", 0);
-  score2.textContent = localStorage.getItem("score2_1");
-  score1.textContent = localStorage.getItem("score1_1");
-  box3.classList.remove("box8");
-  box4.classList.add("box8");
-  
+function playagainn() {
+  // console.log("play");
+  // console.log(score2.textContent);
+  // // localStorage.setItem("score2_1", 0);
+  // // localStorage.setItem("score1_1", 0);
+  // score2.textContent = localStorage.getItem("score2_1");
+  // score1.textContent = localStorage.getItem("score1_1");
+  window.location.reload();
+  // box3.classList.remove("box8");
+  // box4.classList.add("box8");
 }
 // console.log(page);
 let score1_1 = Number(localStorage.getItem("score1_1") || 0);
@@ -68,6 +69,7 @@ function rr(a) {
   box3.classList.add("box8");
 
   box4.classList.remove("box8");
+
   if (a == "r") {
     box4_1.innerHTML = `<p>YOU PICKED</p><div class="box41-5">
         <img src="./assets/icons8-fist-67 1.png" alt="" />
@@ -115,30 +117,21 @@ function rr(a) {
   // console.log('kfadjfkj');
 
   if (
-    (num == 0 && a == "r") ||
-    (num == 1 && a == "p") ||
-    (num == 2 && a == "s")
+    (num == 0 && a == "r") ||(num == 1 && a == "p") ||(num == 2 && a == "s")
   ) {
-    box4_2.innerHTML = `<h1>TIE UP</h1><button class="playagain">REPLAY</button>`;
-  } else if (
-    (num == 0 && a == "s") ||
-    (num == 2 && a == "p") ||
-    (num == 1 && a == "r")
-  ) {
-    localStorage.setItem('score1_1', score1_1 + 1);
-    score2.textContent = localStorage.getItem('score1_1');
-
+    box4_2.innerHTML = `<h1>TIE UP</h1><button onclick= "playagainn()"  class="playagain">REPLAY</button>`;
+  } else if ((num == 0 && a == "s") ||(num == 2 && a == "p") ||(num == 1 && a == "r")){
+    console.log(num + a);
+    // localStorage.setItem("score1_1", score1_1 + 1);
+    // score2.textContent = localStorage.getItem("score1_1");
     localStorage.setItem("score1_1", score1_1 + 1);
+
     console.log(localStorage.getItem("score1_1"));
     score1.textContent = localStorage.getItem("score1_1");
     // score2.textContent=1;
     box4_2.innerHTML = `<h1>YOU <span>LOST</span></h1>
     <p>AGAINST PC</p>
-    <button class='playagain'>PLAY AGAIN</button>`;
-
-
-
-
+    <button onclick= "playagainn()"  class='playagain'>PLAY AGAIN</button>`;
 
     // let box43_1=document.querySelector('.box43-1')
 
@@ -154,6 +147,7 @@ function rr(a) {
     } else if (a == "s" || a == "p") {
       box43_1.classList.add("box41_1_shadow");
     }
+    box6_2.classList.remove("box8");
 
     // if(a=='s'){
 
@@ -167,6 +161,11 @@ function rr(a) {
     // console.log('pc los');
     // box41_5.classList.add('box41_1_shadow')
   }
+  //   let playagain = document.querySelector(".playagain");
+  // playagain.addEventListener("click",()=>{
+  //   console.log('page loadddd');
+  // })
+  // console.log(playagain);
   //    if(num==1&&a=='s'){
   //     box4_2.innerHTML=`<h1>YOU <span>LOST</span></h1>
   //     <p>AGAINST PC</p>
@@ -185,7 +184,26 @@ function rr(a) {
   // console.log(a);
   // console.log('afjhdkj');
 }
-function score() {}
+function playagainn1() {
+ 
+ 
+    console.log("hfdsafs");
+    let box5=document.querySelector('.box5')
+    console.log(box5);
+    box5.classList.add('box5-5');
+    box.classList.add('box8')
+    box6_2.classList.add('box8')
+    box5.classList.remove('box5');
+
+
+}
+function playagainn2(){
+  console.log('fakljdfjdfjsj');
+  localStorage.setItem("score1_1",0)
+  localStorage.setItem("score2_1",0)
+  playagainn();
+
+}
 
 //board
 let a = false;
@@ -203,12 +221,8 @@ function board1() {
   }
 }
 
-
 // let playagain1 = document.querySelector(".playagain1");
 // let playagain2 = document.querySelector(".playagain2");
-
-
-
 
 // playagain1.addEventListener("click",()=>{
 //   console.log('playagain1');
@@ -217,6 +231,4 @@ function board1() {
 //   console.log('playagain2');
 // })
 
-let playagain = document.querySelector(".playagain");
-playagain.addEventListener("click",playagainn)
 // console.log('fasdjfkj');
