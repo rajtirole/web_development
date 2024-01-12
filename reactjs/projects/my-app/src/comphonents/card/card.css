@@ -1,0 +1,23 @@
+.card{
+    height: 100px;
+    width: 100px;
+    background-color: yellow;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid  black;
+    border-radius: 3px;
+
+}
+.cards{
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    gap: 3px;
+    /* justify-self: center; */
+}
+.box{
+    background-color: rgb(15, 13, 13);
+   height: 100vh;
+
+}
