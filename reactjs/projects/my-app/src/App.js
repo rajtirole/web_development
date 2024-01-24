@@ -1,98 +1,62 @@
+import { BrowserRouter} from 'react-router-dom';
+import { Routes,Route,Link} from 'react-router-dom';
+import { useState } from 'react';
 import { Icon } from './comphonents/icons/Icon';
 
 import './App.css';
 import './comphonents/card/card.css';
 import Cards from './comphonents/card/cards';
-import { useState } from 'react';
+import Card from './comphonents/cards/card';
+import Aa from './comphonents/apps/Cards'
+import Comphonent1 from './comphonents/apps/Comphonent1'
+import Comphonent4 from './comphonents/apps/comphonent4'
+import Comphonent6 from './comphonents/apps/comphonent6'
+import Comphonent7 from './comphonents/apps/comphonent7'
+// import Comphonent10 from './comphonents/apps/Comphonent10'
 
-function App() {
-  const [number,setnumber]=useState('0')
-  const [numberr,setnumberr]=useState('0')
-  console.log(typeof(number));
-  
-  function aa(num){
 
-    console.log(number.length);
-    if(number==0){
-      setnumber(num)
-    }
-    else if((number[number.length-1]=='+'||number[number.length-1]=='-'||number[number.length-1]=='*'||number[number.length-1]=='/') &&(num=='+'||num=='-'||num=='*'||num=='/')){
-      // setnumber(number.slice(0,number.length-2)+num)
-      let aa=number.slice(0,number.length-1);
-      setnumber(aa+num)
-      console.log(aa+num);
-      console.log(num);
-      console.log(number.slice(0,number.length-1));
-
-    }
-    else{
-      setnumber(number+num)
-    }
-    
-    // console.log(typeof(num));
-
-  }
-  return (
-   <>
+function App(){
+  return <>
+   <BrowserRouter>
    
-{/* <div className="box">
-  
-   <Cards></Cards>
-   <div className="grid grid-cols-4 gap-4 to-white text-3xl font-bold underline place-content-center">
-  <div>01</div>
-  <div>01</div>
-  <div>01</div>
-  <div>01</div>
-  <div>01</div>
-  <div>01</div>
-  <div>01</div>
-  <div>01</div>
-  <div>01</div>
+  <nav>
+    <ul>
+     <Link to='/home'><li>jfkasd</li></Link>
+      <Link to='/Cards'><li>cards</li></Link>
+      <Link to='/Card'><li>card</li></Link>
+      <Link to='/Comphonent1'><li>aa</li></Link>
+      <Link to='Comphonent4'><li>Cards</li></Link>
+      <Link to='Comphonent6'><li>Comphonent1</li></Link>
+      <Link to='Comphonent7'><li>Comphonent4</li></Link>
+      {/* <Link to='Comphonent10'><li>Comphonent6</li></Link> */}
+      {/* <Link to=''><li>Comphonent7</li></Link>
+      <Link to=''><li>Comphonent10</li></Link> */}
+    </ul>
+  </nav>
  
-  <div>09</div>
-</div>
-  <h3 className='flex place-content-center h-screen bg-red-600 text-6xl'>lorenjflakjfklaj</h3>
-   </div> */}
-   <div className="box2 bg-gray-300 h-screen  flex items-center justify-center ">
-   {/* calculator app  */}
-   <div className="grid grid-rows-6 grid-cols-4 gap-2 bg-slate-800 text-white border-solid border-2 border-gray-500 rounded w-[90%] h-[60%] md:h-3/5 md:w-2/4  grid-rows-[minmax(10px,120px)] md:grid-rows-[minmax(10px,20%)] p-5">
-    <div className='hover:border-gray-200  output-screen col-span-4 bg-slate-900 border-solid border-2 border-gray-600 rounded '>
-      <div className="text-2xl text-right ">{number}</div>
-      <div className="text-2xl text-right  next">{numberr}</div>
-    </div>
-    <button onClick={(e)=>{setnumber('0');setnumberr('0');}} className='hover:border-gray-400  text-2xl col-span-2 border-solid border-2 border-gray-600 rounded  bg-slate-950'>AC</button>
-    <button onClick={(e)=>{
-      let a=number.slice(0,number.length-1)
-      console.log(a.length);
-      if(a.length<1){
-        setnumber('0');
-      }
-      else{
-        setnumber(a)
-      }
+<Routes>
+  <Route path='/' element={<h1>homepage</h1>} />
+  <Route path='/Cards' element={<Cards></Cards>} />
+  <Route path='/Aa' element={  <Aa></Aa>} />
+  <Route path='/Card' element={<Card></Card>} />
+  <Route path='/Comphonent1' element={ <Comphonent1></Comphonent1>} />
+  <Route path='/Comphonent4' element={ <Comphonent4></Comphonent4>} />
+  <Route path='/Comphonent6' element={ <Comphonent6></Comphonent6>} />
+  <Route path='/Comphonent7' element={ <Comphonent7></Comphonent7>} />
+  {/* <Route path='/Comphonent10' element={ <Comphonent10></Comphonent10>} /> */}
+ 
+  {/* 
+ <Comphonent4></Comphonent4>
+ <Comphonent6></Comphonent6>
+ <Comphonent7></Comphonent7>
+ <Comphonent10></Comphonent10> */}
+ </Routes>
+ </BrowserRouter>
 
-    console.log(a); 
-    }} className='hover:border-gray-400 text-2xl border-solid border-2 border-gray-600 rounded  bg-slate-950'>DEL</button>
-    <button onClick={(e)=>{aa(e.target.textContent)}} className='hover:border-gray-400 text-2xl border-solid border-2 border-gray-600 rounded  bg-slate-950'>/</button>
-    <button onClick={(e)=>{aa(e.target.textContent)}} className='hover:border-gray-400 text-2xl border-solid border-2 border-gray-600 rounded  bg-slate-950'>1</button>
-    <button onClick={(e)=>{aa(e.target.textContent)}} className='hover:border-gray-400 text-2xl border-solid border-2 border-gray-600 rounded  bg-slate-950'>2</button>
-    <button onClick={(e)=>{aa(e.target.textContent)}} className='hover:border-gray-400 text-2xl border-solid border-2 border-gray-600 rounded  bg-slate-950'>3</button>
-    <button onClick={(e)=>{aa(e.target.textContent)}} className='hover:border-gray-400 text-2xl border-solid border-2 border-gray-600 rounded  bg-slate-950'>*</button>
-    <button onClick={(e)=>{aa(e.target.textContent)}} className='hover:border-gray-400 text-2xl border-solid border-2 border-gray-600 rounded  bg-slate-950'>4</button>
-    <button onClick={(e)=>{aa(e.target.textContent)}} className='hover:border-gray-400 text-2xl border-solid border-2 border-gray-600 rounded  bg-slate-950'>5</button>
-    <button onClick={(e)=>{aa(e.target.textContent)}} className='hover:border-gray-400 text-2xl border-solid border-2 border-gray-600 rounded  bg-slate-950'>6</button>
-    <button onClick={(e)=>{aa(e.target.textContent)}} className='hover:border-gray-400 text-2xl border-solid border-2 border-gray-600 rounded  bg-slate-950'>+</button>
-    <button onClick={(e)=>{aa(e.target.textContent)}} className='hover:border-gray-400 text-2xl border-solid border-2 border-gray-600 rounded  bg-slate-950'>7</button>
-    <button onClick={(e)=>{aa(e.target.textContent)}} className='hover:border-gray-400 text-2xl border-solid border-2 border-gray-600 rounded  bg-slate-950'>8</button>
-    <button onClick={(e)=>{aa(e.target.textContent)}} className='hover:border-gray-400 text-2xl border-solid border-2 border-gray-600 rounded  bg-slate-950'>9</button>
-    <button onClick={(e)=>{aa(e.target.textContent)}} className='hover:border-gray-400 text-2xl border-solid border-2 border-gray-600 rounded  bg-slate-950'>-</button>
-    <button onClick={(e)=>{aa(e.target.textContent)}} className='hover:border-gray-400 text-2xl border-solid border-2 border-gray-600 rounded  bg-slate-950'>.</button>
-    <button onClick={(e)=>{aa(e.target.textContent)}} className='hover:border-gray-400 text-2xl border-solid border-2 border-gray-600 rounded  bg-slate-950'>0</button>
-    <button onClick={(e)=>{setnumberr(eval(number))}} className=' text-2xl col-span-2 hover:border-gray-400  border-solid border-2 border-gray-600 rounded  bg-slate-950'>=</button>
-   </div> 
-   </div>
-   </>
-  );
+
+  
+
+  </>
 }
 
 export default App;

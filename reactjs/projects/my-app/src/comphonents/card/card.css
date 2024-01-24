@@ -1,6 +1,6 @@
 .card{
-    height: 100px;
-    width: 100px;
+    height: 10rem;
+    
     background-color: yellow;
     color: black;
     display: flex;
