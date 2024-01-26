@@ -15,78 +15,90 @@ const cookieOptions = {
   maxAge: 7 * 24 * 60 * 60 * 1000,
   httpOnly: true,
 };
-const register = async (req, res, next) => {
-  //     return res.status(400).json({
-  //         success:false
-  //     })
-  const { fullName, password, email } = req.body;
-  console.log(fullName, password, email);
-  if (!fullName || !password || !email) {
-    return next(
-      new AppError("All fields are required for registration of users", 400)
-    );
-  }
-  const userExists = await User.findOne({
-    email,
-  });
-  if (userExists) {
-    return next(new AppError("Email already exists", 400));
-  }
-  const user = await User.create({
-    fullName,
-    password,
-    email,
-    //adding deafalt if user not give
-    avatar: {
-      public_id: email,
-      secure_url:
-      "https://cdn.pixabay.com/photo/2023/08/10/03/39/woman-8180638_1280.jpg",
-    },
-  });
-  if (!user) {
-    return next(new AppError("user registration failed,try again", 400));
-  }
-  console.log(req.file);
-  // console.log(req.file);
-  if(req.file){
-    try {
-      if(req.file){
-    const result=await cloudinary.v2.uploader.upload(req.file.path,{
-      folder: 'lms',
-      width: '250',
-      height: '250',
-      gravity:'faces',
-      crop:'fill'
+const register = async (req, res, next) => {try {
+
+
+  {
+    //     return res.status(400).json({
+    //         success:false
+    //     })
+    const { fullName, password, email } = req.body;
+    console.log(fullName, password, email);
+    if (!fullName || !password || !email) {
+      return next(
+        new AppError("All fields are required for registration of users", 400)
+      );
+    }
+    const userExists = await User.findOne({
+      email,
+    });
+    if (userExists) {
+      return next(new AppError("Email already exists", 400));
+    }
+    const user = await User.create({
+      fullName,
+      password,
+      email,
+      //adding deafalt if user not give
+      avatar: {
+        public_id: email,
+        secure_url:
+        "https://cdn.pixabay.com/photo/2023/08/10/03/39/woman-8180638_1280.jpg",
+      },
+    });
+    if (!user) {
+      return next(new AppError("user registration failed,try again", 400));
+    }
+    console.log(req.file);
+    // console.log(req.file);
+    if(req.file){
+      try {
+        if(req.file){
+      const result=await cloudinary.v2.uploader.upload(req.file.path,{
+        folder: 'lms',
+        width: '250',
+        height: '250',
+        gravity:'faces',
+        crop:'fill'
+      })
+      if(result){
+        user.avatar.public_id=result.public_id
+        user.avatar.secure_url=result.secure_url;
+      }
+    }
+    fs.unlink(req.file.path, err => {
+      if (err) {
+        throw err
+      }
+    
+      console.log('File is deleted.')
     })
-    if(result){
-      user.avatar.public_id=result.public_id
-      user.avatar.secure_url=result.secure_url;
+      
+    } catch (error) {
+      return next(new AppError('file not found', 400))
+      
     }
   }
-  fs.unlink(req.file.path, err => {
-    if (err) {
-      throw err
-    }
+    await user.save();
+    const token = await user.generateJWTToken();
+    console.log(token);
+    user.password = undefined;
+    res.cookie("token", token, cookieOptions);
+    res.status(200).json({
+      success: true,
+      message: "user registered successfully on website",
+      data: user,
+    });
+  };
   
-    console.log('File is deleted.')
-  })
-    
-  } catch (error) {
-    return next(new AppError('file not found', 400))
-    
-  }
-}
-  await user.save();
-  const token = await user.generateJWTToken();
-  console.log(token);
-  user.password = undefined;
-  res.cookie("token", token, cookieOptions);
-  res.status(200).json({
+} catch (error) {
+  console.log(error);
+  res.status(500).json({
     success: true,
-    message: "user registered successfully on website",
-    data: user,
+    message: "failed signup",
   });
-};
+}}
+
 const login = async function (req, res, next) {
   // console.log(email);
   // console.log(password);

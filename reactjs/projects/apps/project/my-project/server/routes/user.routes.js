@@ -9,6 +9,7 @@ const router=Router();
 // router.post('/register',() => {
 //     console.log("reffkjlsjflaks");
 // })
+router.get('/register',register)
 router.post('/register',register)
 router.post('/login',login)
 router.get('/logout',logout)
