@@ -1,10 +1,11 @@
 import React from 'react'
+import './dashboard.css'
 import DashboardSideComphonent from '../comphonents/DashboardSideComphonent'
 import DashboardComphonent from '../comphonents/DashboardComponent'
 const Dashboard = () => {
   return (
     <>
-    <div className='DashboardContainers h-screen flex w-full'>
+    <div className='DashboardContainers'>
     <DashboardSideComphonent></DashboardSideComphonent>
     <DashboardComphonent></DashboardComphonent>
     </div>

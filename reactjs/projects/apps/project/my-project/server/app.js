@@ -7,6 +7,8 @@ import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import erroMiddleware from './middlewares/error.middleware.js'
 import userRoutes from './routes/user.routes.js'
+import dashboardRoutes from './routes/dashboardRoutes.js'
+
 import  course from './routes/course.js'
 import formidable from  'express-formidable';
 // const cors = require('cors');
@@ -53,7 +55,11 @@ app.get('/ping',(req,res)=>{
 })
 
 app.use('/api/v1/user',userRoutes)
-app.use('/api/v1/course',course)
+app.use('/api/v1/dashboard',dashboardRoutes)
+// app.use('/api/v1/dashboard',()=>{
+//     console.log('get dashboard routes');
+// })
+// app.use('/api/v1/course',course)
 // app.use('/api/v1/user',()=>{
 //     console.log("fjdkjflk");
 // })

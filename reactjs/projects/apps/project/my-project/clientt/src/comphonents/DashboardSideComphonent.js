@@ -1,16 +1,29 @@
 import React from 'react'
+import './DashboardSideComphonent.css'
+import axios from 'axios';
+function logoutHandler(){
+    try {
+        let res=axios.get("http://localhost:5400/api/v1/user/logout")
+        console.log(res);
+        console.log('logout succesful');
 
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
 const DashboardSideComphonent = () => {
   return (
-    <div className='containerDashboard h-screen flex flex-col w-1/4 justify-between' >
+    <div className='DashboardSideContainer' >
         <div>QUIZZIE</div>
-        <div className='menu'>
+        <div className='SideBarContainer'>
             <div>Dashboard</div>
             <div>Analytics</div>
             <div>Create Quiz</div>
 
         </div>
-        <div>LOGOUT</div>
+       
+        <div onClick={logoutHandler}>LOGOUT</div>
     </div>
   )
 }

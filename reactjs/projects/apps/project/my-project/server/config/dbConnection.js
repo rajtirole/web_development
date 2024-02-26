@@ -12,7 +12,7 @@ const connectionToDB=async()=>{
         }
        
     } catch (error) {
-        console.log(error.message);
+        console.log(error.message,'kfaslkdj');
         process.exit(1)
         
     }

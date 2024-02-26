@@ -1,0 +1,21 @@
+.DashboardSideContainer{
+    display: flex;
+    width: 20%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 10px;
+    /* background-color:; */
+}
+.SideBarContainer{
+    display: flex;
+    justify-content: space-between;
+    height: 30%;
+    flex-direction: column;
+}
+.DashboardSideContainer >p{
+   /* font-size: 70px; */
+   /* font-stretch: 100px; */
+
+   line-height: 20  px;
+}
