@@ -1,0 +1,63 @@
+.chatContainer{
+    width: 100%;
+    /* display: flex;
+    flex-direction: column; */
+    height: 100vh;
+    color: #ffff;
+    font-weight: 500;
+}
+.headingContainer{
+    background-color: #001F8B;
+    min-height: 10% ;
+    display: flex;
+    gap: 10%;
+    align-items: center;
+    padding:10px 0 10px 30px;
+    font-size: 2rem;
+
+}
+
+.messageContainer{
+    background-color: #DAE5F5;
+    height: 70% ;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.chat{
+    background-color: #001F8B;
+    height: 20% ;
+    padding: 10px 20px;
+}
+.container{
+    background-color: #fff;
+    width: 90%;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px 10px 20px 10px;
+    
+    box-shadow: 0px 4px 20px 0px #00000040;
+
+}
+.chat>div{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+border-radius: 10px;
+height: 70%;
+/* align-items: flex-end; */
+
+
+}
+.chat>div>textarea{
+outline: none;
+width: 100%;
+border: none;
+resize: none;
+height: 90%;
+border-radius: 10px;
+}
