@@ -1,14 +1,18 @@
 import mongoose from "mongoose";
 import { DB_NAME } from "./constant.js";
 import { configDotenv } from "dotenv";
-import express from 'express'
 import connectToDB from './config/db.js'
+import app from "./app.js";
 // import { error } from "console";
 
 configDotenv()
 console.log(process.env.MONGODB_URL);
-connectToDB()
-const app=express()
+const PORT=process.env.PORT
+connectToDB().then(()=>{
+    app.listen(PORT,()=>{
+        console.log("app listening on port ",PORT);
+    })
+})
 //moongose connection 
 // ;(async()=>{
 //     try {
