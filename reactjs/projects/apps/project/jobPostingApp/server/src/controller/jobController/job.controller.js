@@ -4,7 +4,8 @@ console.log('create job');
 try {
     const {companyName,title,description,logoUrl,salary,location,duration,locationType,skills}=req.body;
     const refUserId=req.id;
-    if(!companyName||!title||!description||!logoUrl||!salary||!location||!duration||!locationType||!skills){
+    console.log(refUserId);
+    if(!companyName||!title||!description||!logoUrl||!salary||!location||!duration||!locationType||!skills||!refUserId){
         return res.status(400).json({
             succes:false,
             message:'job create failed',
@@ -49,7 +50,7 @@ try {
     //         data:'All feild are required'
     //     })
     // }
-    const data=await Job.updateOne({_id:UserId},
+    const data=await Job.updateOne({_id:UserId,refUserId:refUserId},
         {
             $set:{
                 companyName,title,description,logoUrl,salary,location,duration,locationType,skills
@@ -118,9 +119,26 @@ async function getJobsAll(req,res,next){
         const location=req.query.location||'';
         const duration=req.query.duration||'';
         const locationType=req.query.duration||'';
-        const skills=req.query.skills||'';
-        console.log(title,companyName);
-        const job=await Job.find({title:{$regex:title,$options:'i'},companyName:{$regex:companyName,$options:'i'},description:{$regex:description,$options:'i'},salary:{$regex:salary,$options:'i'},location:{$regex:location,$options:'i'},duration:{$regex:duration,$options:'i'},locationType:{$regex:locationType,$options:'i'},skills:{$regex:skills,$options:'i'}});
+        const skills=req.query.skills;
+        let filteredSkills;
+        let filter={};
+        if(skills){
+            filteredSkills=skills.split(",")
+            filteredSkills=filteredSkills.map(element=>{
+                return new RegExp(element,"i")
+            })
+            filter={skills:{$in:filteredSkills}}
+            // skils=skills.split(',');
+            // skill={skills:{$in:skils}}
+
+            
+        }
+        console.log(title,companyName,skills);
+        // const job=await Job.find({title:{$regex:title,$options:'i'},...filter});
+        // const job=await Job.find({skills:{$in:skills}});
+        // const job=await Job.find({title:{$regex:title,$options:'i'},companyName:{$regex:companyName,$options:'i'}});
+        const job=await Job.find({title:{$regex:title,$options:'i'},companyName:{$regex:companyName,$options:'i'},description:{$regex:description,$options:'i'},salary:{$regex:salary,$options:'i'},location:{$regex:location,$options:'i'},duration:{$regex:duration,$options:'i'},locationType:{$regex:locationType,$options:'i'},...filter});
+        // const job=await Job.find({title:{$regex:title,$options:'i'},companyName:{$regex:companyName,$options:'i'},description:{$regex:description,$options:'i'},salary:{$regex:salary,$options:'i'},location:{$regex:location,$options:'i'},duration:{$regex:duration,$options:'i'},locationType:{$regex:locationType,$options:'i'}})   ;
         if(!job){
             return res.status(400).json({
                 succes:false,

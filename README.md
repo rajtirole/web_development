@@ -84,6 +84,14 @@ The project follows a modular folder structure for better organization:
 
 For deployment options and best practices, refer to the [Deployment](#deployment) section in the project's documentation.
 
+## Project deployment links
+you will find All deployed projects link here and there git folder inside this repo
+
+- [ChatingApp](https://chating-7fygrz1lx-raja-tiroles-projects.vercel.app/)
+- [MongoDB](https://www.mongodb.com/)
+- [Git](https://git-scm.com/)
+
+
 ## Contributing
 
 We welcome contributions! Please follow our [Contribution Guidelines](CONTRIBUTING.md) for a smooth collaboration process.
