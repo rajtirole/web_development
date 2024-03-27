@@ -61,7 +61,7 @@ userSchema.methods.generateAccessToken = async function () {
       _id: this._id,
       userName: this.userName,
       email: this.email,
-      fullName: fullName,
+      fullName: this.fullName,
     },
     process.env.ACCESS_TOKEN_SECRET,
     {
@@ -81,4 +81,5 @@ userSchema.methods.generateRefreshToken = async function () {
     }
   );
 };
-export const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
+export default User

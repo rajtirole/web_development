@@ -1,5 +1,7 @@
 import { v2 as cloudinary } from "cloudinary";
 import fs, { fsyncSync } from "fs";
+import { config } from "dotenv";
+config()
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -11,7 +13,7 @@ async function cloudinaryImageUploader(localFile) {
     const response = await cloudinary.uploader.upload(localFile, {
       resource_type: "auto",
     });
-    console.log("cloudinary file upload success", response);
+    fs.unlinkSync(localFile);
     return response;
   } catch (error) {
     console.log("cloudinary file upload not success", error);
