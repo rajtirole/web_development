@@ -9,5 +9,5 @@ const subscriptionSchema=new mongoose.Schema({
         ref:"User"
     }
 },{timestamps:true})
-const Subscription=mongoose.model('Subscription',Subscription)
+const Subscription=mongoose.model('Subscription',subscriptionSchema)
 export default Subscription
