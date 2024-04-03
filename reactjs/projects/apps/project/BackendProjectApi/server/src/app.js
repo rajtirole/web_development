@@ -17,7 +17,13 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(express.static("public"))
 app.use(cookieParser())
-
+app.get('/',(req,res)=>{
+    res.status(200).json({
+        success:true,
+        message:"server running"
+    })
+    
+})
 app.use('/api/v1/user',userRoutes)
 app.use('/api/v1/videos',videoRoutes)
 app.use('/api/v1/tweet',tweetRoutes)
